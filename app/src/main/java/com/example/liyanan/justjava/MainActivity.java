@@ -18,6 +18,7 @@ import java.text.NumberFormat;
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
+    int quantityOfCoffee = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +30,9 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int numberofcCoffees = 2;
-        int quantityOfCoffees = 5;
-        display(numberofcCoffees);
-        displayPrice(numberofcCoffees * quantityOfCoffees);
+        int price = 2;
+        display(quantityOfCoffee);
+        displayPrice(price * quantityOfCoffee);
     }
 
     /**
@@ -48,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
-    public void increment(View view){
-        int quantityOfCoffee = 3;
+    public void increment(View view) {
+        quantityOfCoffee = quantityOfCoffee + 1;
         display(quantityOfCoffee);
     }
 
-    public  void decrement(View view){
-        int quantityOfCoffee = 1;
+    public void decrement(View view) {
+        quantityOfCoffee = quantityOfCoffee - 1;
         display(quantityOfCoffee);
     }
 }
