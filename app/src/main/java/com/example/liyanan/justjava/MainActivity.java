@@ -30,9 +30,8 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = 2;
-        display(quantityOfCoffee);
-        displayPrice(price * quantityOfCoffee);
+        String message_quantity = "The quantity of the coffee is " + quantityOfCoffee + "\n The price of the coffee is $" + quantityOfCoffee * 5;
+        displayMessage(message_quantity);
     }
 
     /**
@@ -56,5 +55,13 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         quantityOfCoffee = quantityOfCoffee - 1;
         display(quantityOfCoffee);
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }
